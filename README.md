@@ -18,18 +18,20 @@ Self-directed lab project involving the recovery and secure configuration of thr
 
 ### 1. Console Access
 Connected to each switch via USB console cable and configured PuTTY with the correct serial COM port settings to access the switch CLI.
-![Bootloader Access](SwitchScreenshots/Switch%20Stuff5.png)
+
 ### 2. Bootloader Access
 Accessed each switch's bootloader prompt (`switch:`) by interrupting the boot process. Used this environment to diagnose the cause of boot failures and missing boot variables.
 
 ### 3. Bypassing Corrupted Startup Config
 Set the following environment variable to bypass the corrupted startup configurations and regain administrative access on affected switches:
-![Bootloader Environment Variables](SwitchScreenshots/Switch%20Stuff3.png)
+![Bootloader Access](SwitchScreenshots/Switch%20Stuff5.png)
+
 `SWITCH_IGNORE_STARTUP_CFG=1` 
 
 ### 4. Factory Reset
 Performed a full factory reset on each switch using the following commands:
 ![Factory Reset Process](SwitchScreenshots/Switch%20Stuff.png)
+
 `write erase`
 `delete flash:vlan.dat`
 `reload`
