@@ -1,7 +1,7 @@
 # Cisco Catalyst 3650 Switch Recovery & Configuration
 
 ## Overview
-Self-directed lab project involving the recovery and secure configuration of a Cisco Catalyst 3650 Series enterprise switch (WS-C3650-48TS). This project involved diagnosing boot failures, recovering switch access, performing a factory reset, and configuring the switch with secure administrative settings.
+Self-directed lab project involving the recovery and secure configuration of three Cisco Catalyst 3650 Series enterprise switch (WS-C3650-48TS). This project involved diagnosing boot failures, recovering switch access, performing a factory reset, and configuring the switch with secure administrative settings.
 
 ## Hardware
 - Cisco Catalyst 3650 Series Switch (WS-C3650-48TS)
@@ -34,7 +34,15 @@ Performed a full factory reset using the following commands:
 `delete flash:vlan.dat`
 `reload`
 
-### 5. Secure Configuration
+### 5. Stack Renumbering
+Worked with a total of 3 switches. Two switches were configured as stack members and needed to be renumbered before they could be reused as standalone units. Used the following process to break the stack configuration:
+
+- Identified each switch's stack member number
+- Renumbered stack members to prevent them from attempting to rejoin a stack on boot
+- Wiped all three switches independently to ensure clean standalone configurations
+- Verified each switch booted independently without attempting stack negotiation
+
+### 6. Secure Configuration
 After recovery, configured the switch with the following:
 - Hostname
 - Local admin account
