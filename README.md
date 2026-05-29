@@ -1,10 +1,10 @@
 # Cisco Catalyst 3650 Switch Recovery & Configuration
 
 ## Overview
-Self-directed lab project involving the recovery and secure configuration of three Cisco Catalyst 3650 Series enterprise switch (WS-C3650-48TS). This project involved diagnosing boot failures, recovering switch access, performing a factory reset, and configuring the switch with secure administrative settings.
+Self-directed lab project involving the recovery and secure configuration of three Cisco Catalyst 3650 Series enterprise switches (WS-C3650-48TS). This project involved diagnosing boot failures, recovering switch access, performing a factory reset, and configuring the switch with secure administrative settings.
 
 ## Hardware
-- Cisco Catalyst 3650 Series Switch (WS-C3650-48TS)
+- 3x Cisco Catalyst 3650 Series Switches (WS-C3650-48TS)
 - USB console cable
 - Personal PC running PuTTY
 
@@ -17,18 +17,18 @@ Self-directed lab project involving the recovery and secure configuration of thr
 ## Recovery Process
 
 ### 1. Console Access
-Connected to the switch via USB console cable and configured PuTTY with the correct serial COM port settings to access the switch CLI.
+Connected to each switch via USB console cable and configured PuTTY with the correct serial COM port settings to access the switch CLI.
 
 ### 2. Bootloader Access
-Accessed the switch bootloader prompt (`switch:`) by interrupting the boot process. Used this environment to diagnose the cause of boot failures and missing boot variables.
+Accessed each switch's bootloader prompt (`switch:`) by interrupting the boot process. Used this environment to diagnose the cause of boot failures and missing boot variables.
 
 ### 3. Bypassing Corrupted Startup Config
-Set the following environment variable to bypass the corrupted startup configuration and regain administrative access:
+Set the following environment variable to bypass the corrupted startup configurations and regain administrative access on affected switches:
 
 `SWITCH_IGNORE_STARTUP_CFG=1` 
 
 ### 4. Factory Reset
-Performed a full factory reset using the following commands:
+Performed a full factory reset on each switch using the following commands:
 
 `write erase`
 `delete flash:vlan.dat`
@@ -43,7 +43,7 @@ Worked with a total of 3 switches. Two switches were configured as stack members
 - Verified each switch booted independently without attempting stack negotiation
 
 ### 6. Secure Configuration
-After recovery, configured the switch with the following:
+After recovery, configured each switch with the following:
 - Hostname
 - Local admin account
 - Enable secret password
